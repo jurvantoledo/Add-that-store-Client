@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { signUp } from "../../store/user/actions";
-import { selectToken, selectUser } from "../../store/user/selectors";
+import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
@@ -13,14 +13,19 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
-  const [isOwner, setIsOwner] = useState(true || false)
+  const [isOwner, setIsOwner] = useState(false)
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
 
+  console.log(isOwner)
+
   useEffect(() => {
     if (token !== null) {
       history.push("/");
+    }
+    if (isOwner === true) {
+      history.push("/add-store");
     }
   }, [token, history]);
 
@@ -44,6 +49,7 @@ export default function SignUp() {
     () => setIsOwner(false),
     [isOwner, setIsOwner],
   );
+  
 
 
   return (
@@ -116,11 +122,11 @@ export default function SignUp() {
           />
       </Form.Group>
 
-        <Form.Group className="mt-5">
+      <Form.Group className="mt-5">
           <Button variant="primary" type="submit" onClick={submitForm}>
-            Sign up
-          </Button>
-        </Form.Group>
+          Sign up
+        </Button>
+      </Form.Group>
         <Link to="/login">Click here to log in</Link>
       </Form>
     </Container>
