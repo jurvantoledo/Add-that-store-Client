@@ -1,47 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-import { selectToken } from "../../store/user/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
 import { addStore } from "../../store/user/actions";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { Col } from "react-bootstrap";
 
-
-export default function AddStore() {
+export default function SignUp() {
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
   const dispatch = useDispatch();
-  const token = useSelector(selectToken);
-  const history = useHistory();
-
-  /*useEffect(() => {
-    if (token !== null) {
-      history.push("/");
-    }
-  }, [token, history]);*/
 
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(addStore(name, address, description, image));
+    dispatch(addStore(name, image, description, address));
 
-    setAddress("");
+    setImage("");
     setDescription("");
     setName("");
-    setImage("")
+    setAddress("")
   }
-
+  
 
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Add Store</h1>
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name of Store</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
             onChange={event => setName(event.target.value)}
@@ -50,8 +40,8 @@ export default function AddStore() {
             required
           />
         </Form.Group>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Address</Form.Label>
+        <Form.Group controlId="formAddress">
+          <Form.Label>address</Form.Label>
           <Form.Control
             value={address}
             onChange={event => setAddress(event.target.value)}
@@ -61,24 +51,24 @@ export default function AddStore() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="formBasicDescription">
           <Form.Label>Description</Form.Label>
           <Form.Control
             value={description}
             onChange={event => setDescription(event.target.value)}
-            type="description"
-            placeholder="description"
+            type="text"
+            placeholder="Description"
             required
           />
         </Form.Group>
 
-        <Form.Group controlId="formPhoneNumber">
+        <Form.Group controlId="formImage">
           <Form.Label>Image</Form.Label>
           <Form.Control
             value={image}
             onChange={event => setImage(event.target.value)}
-            type="text"
-            placeholder="Upload your image"
+            type="phoneNumber"
+            placeholder="yeah"
             required
           />
         </Form.Group>

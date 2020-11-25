@@ -1,12 +1,13 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken, selectUser } from "./selectors";
+import { selectToken, selectUser, selectStore } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
   setMessage
 } from "../appState/actions";
+import { selectStores } from "../stores/selectors";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
@@ -118,32 +119,32 @@ export const getUserWithStoredToken = () => {
   };
 };
 
-export const addStore = (name, address, description, image) => {
+export const addStore = (name, image, description, address) => {
   return async (dispatch, getState) => {
-    const { user, token } = selectUser(getState());
-    console.log(name, address, description, image);
+    const { id } = selectUser(getState());
+    console.log(id)
     dispatch(appLoading());
-
-    const response = await axios.post( 
-      `${apiUrl}/store/${user.id}/add-store`,
-      {
+    try {
+      const response = await axios.post(
+        `${apiUrl}/user/${id}/store`, {
         name,
-        address,
+        image,
         description,
-        image
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
-    );
+        address,
+      });
 
-    console.log("Yes!", response);
-    dispatch(
-      showMessageWithTimeout("success", false, response.data.message, 3000)
-    );
-    dispatch(storePostSuccess(response.data.store));
-    dispatch(appDoneLoading());
+      dispatch(storePostSuccess(response.data));
+      dispatch(showMessageWithTimeout("success", true, "store created"));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data.message);
+        dispatch(setMessage("danger", true, error.response.data.message));
+      } else {
+        console.log(error.message);
+        dispatch(setMessage("danger", true, error.message));
+      }
+      dispatch(appDoneLoading());
+    }
   };
 };

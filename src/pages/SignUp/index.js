@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { signUp } from "../../store/user/actions";
-import { selectToken } from "../../store/user/selectors";
+import { selectToken, selectUser } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
@@ -17,17 +17,18 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
+  const { id } = useSelector(selectUser)
 
-  console.log(isOwner)
+  console.log(id)
 
   useEffect(() => {
     if (token !== null) {
       history.push("/");
     }
     if (isOwner === true) {
-      history.push("/add-store");
+      history.push(`/add-store/${id}`);
     }
-  }, [token, history]);
+  }, [token, history, id]);
 
   function submitForm(event) {
     event.preventDefault();
