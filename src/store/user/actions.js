@@ -121,12 +121,12 @@ export const getUserWithStoredToken = () => {
 
 export const addStore = (name, image, description, address) => {
   return async (dispatch, getState) => {
-    const { id } = selectUser(getState());
-    console.log(id)
+    const { user } = selectStore(getState());
+    console.log(user)
     dispatch(appLoading());
     try {
       const response = await axios.post(
-        `${apiUrl}/user/${id}/store`, {
+        `${apiUrl}/user/${user.id}`, {
         name,
         image,
         description,
