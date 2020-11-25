@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken } from "./selectors";
+import { selectToken, selectUser } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -11,6 +11,7 @@ import {
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";
 export const LOG_OUT = "LOG_OUT";
+export const STORE_POST_SUCCESS = "STORE_POST_SUCCESS";
 
 const loginSuccess = userWithToken => {
   return {
@@ -25,6 +26,11 @@ const tokenStillValid = userWithoutToken => ({
 });
 
 export const logOut = () => ({ type: LOG_OUT });
+
+export const storePostSuccess = store => ({
+  type: STORE_POST_SUCCESS,
+  payload: store
+});
 
 export const signUp = (name, email, password, phone, isOwner) => {
   return async (dispatch, getState) => {
@@ -109,5 +115,35 @@ export const getUserWithStoredToken = () => {
       dispatch(logOut());
       dispatch(appDoneLoading());
     }
+  };
+};
+
+export const addStore = (name, address, description, image) => {
+  return async (dispatch, getState) => {
+    const { user, token } = selectUser(getState());
+    console.log(name, address, description, image);
+    dispatch(appLoading());
+
+    const response = await axios.post( 
+      `${apiUrl}/store/${user.id}/add-store`,
+      {
+        name,
+        address,
+        description,
+        image
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    console.log("Yes!", response);
+    dispatch(
+      showMessageWithTimeout("success", false, response.data.message, 3000)
+    );
+    dispatch(storePostSuccess(response.data.store));
+    dispatch(appDoneLoading());
   };
 };
