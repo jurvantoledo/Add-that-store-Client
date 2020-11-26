@@ -119,7 +119,7 @@ export const getUserWithStoredToken = () => {
   };
 };
 
-export const addStore = (name, image, description, address) => {
+export const addStore = (name, image, description, address, category) => {
   return async (dispatch, getState) => {
     const { user } = selectStore(getState());
     console.log(user)
@@ -131,6 +131,7 @@ export const addStore = (name, image, description, address) => {
         image,
         description,
         address,
+        category,
       });
 
       dispatch(storePostSuccess(response.data));

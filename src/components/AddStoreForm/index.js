@@ -6,24 +6,48 @@ import { addStore } from "../../store/user/actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import ImageUploader from "../ImageUploader/ImageUploader"
 
 export default function SignUp() {
+  const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
-  const dispatch = useDispatch();
+  const [category, setCategory] = useState({
+    selectCat: [
+     {label: "Automotive", value: "Automotive"},
+     {label: "Electronics", value: "Electronics"},
+     {label: "Clothing", value: "Clothing"},
+     {label: "Entertainment & Arts", value: "Entertainment & Arts"},
+     {label: "Food & Gifts", value: "Food & Gifts"},
+    ]
+  })
+  console.log(image)
 
   function submitForm(event) {
     event.preventDefault();
 
-    dispatch(addStore(name, image, description, address));
+    dispatch(addStore(name, image, description, address, category));
 
     setImage("");
     setDescription("");
     setName("");
     setAddress("")
+    setCategory({
+      selectCat: [
+        {label: "Automotive", value: "Automotive"},
+        {label: "Electronics", value: "Electronics"},
+        {label: "Clothing", value: "Clothing"},
+        {label: "Entertainment & Arts", value: "Entertainment & Arts"},
+        {label: "Food & Gifts", value: "Food & Gifts"},
+      ]
+    })
   }
+
+  const uploadImageUrl = (url) => {
+    setImage(url);
+  };
   
 
   return (
@@ -62,16 +86,43 @@ export default function SignUp() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formImage">
-          <Form.Label>Image</Form.Label>
+        <Form.Group controlId="formBasicCategory">
+          <Form.Label>Category</Form.Label>
+           <Form.Control as="select"
+           value={category}
+           onChange={event => setCategory(event.target.value)}
+           type="dropdown"
+           required
+           >
+            <option value={null}>Select a category</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Entertainment & Arts">Entertainment & Arts</option>
+            <option value="Food & Gifts">Food & Gifts</option>
+          </Form.Control>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicImageUrl">
+          <Form.Label>Store picture</Form.Label>
           <Form.Control
             value={image}
-            onChange={event => setImage(event.target.value)}
-            type="phoneNumber"
-            placeholder="yeah"
-            required
+            onChange={(event) => setImage(event.target.value)}
+            type="text"
+            placeholder="Paste url"
           />
         </Form.Group>
+        <ImageUploader uploadPreset="store" uploadImageUrl={uploadImageUrl} />
+        {image ? (
+          <div style={{ margin: "1rem 0 0 0" }}>
+            <p style={{ fontSize: "0.8rem" }}>Image preview:</p>
+            <img
+              className="new-image-preview"
+              src={image}
+              alt="store pic"
+            />
+          </div>
+        ) : null}
 
       <Form.Group className="mt-5">
           <Button  variant="primary" type="submit" onClick={submitForm}>
