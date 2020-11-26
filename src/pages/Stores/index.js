@@ -23,6 +23,7 @@ export default function Stores() {
                 return(
                     <Jumbotron key={store.id}>
                         <h2>{store.name}</h2>
+                        <img src={store.image} />
                         <p>{store.description}</p>
                         <p>{store.address}</p>
                     </Jumbotron>

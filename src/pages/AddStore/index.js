@@ -10,7 +10,6 @@ export default function AddStore() {
 
     return (
         <div>
-         <p>Hello</p>
          <AddStoreForm />
         </div>
     )
