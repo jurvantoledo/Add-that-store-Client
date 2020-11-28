@@ -119,7 +119,7 @@ export const getUserWithStoredToken = () => {
   };
 };
 
-export const addStore = (name, image, description, address, category) => {
+export const addStore = (name, image, description, country, city, address, postCode, category) => {
   return async (dispatch, getState) => {
     const { user } = selectStore(getState());
     console.log(user)
@@ -130,7 +130,10 @@ export const addStore = (name, image, description, address, category) => {
         name,
         image,
         description,
+        country,
+        city,
         address,
+        postCode,
         category,
       });
 

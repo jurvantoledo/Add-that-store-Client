@@ -11,15 +11,21 @@
     "cloudinary": "^1.23.0",
     "cloudinary-core": "^2.11.3",
     "cloudinary-react": "^1.6.8",
+    "formik": "^2.2.5",
     "react": "^16.13.0",
+    "react-autosuggest": "^10.0.4",
     "react-bootstrap": "^1.0.0-beta.17",
+    "react-cool-onclickoutside": "^1.5.8",
     "react-dom": "^16.13.0",
+    "react-places-autocomplete": "^7.3.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-select": "^3.1.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "use-places-autocomplete": "^1.6.0",
+    "yup": "^0.31.0"
   },
   "scripts": {
     "start": "react-scripts start",
