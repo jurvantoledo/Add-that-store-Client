@@ -1,0 +1,5 @@
+.jumbotron .figure img {
+  position: relative;
+  max-height: 350px;
+  max-width: 350px;
+}
