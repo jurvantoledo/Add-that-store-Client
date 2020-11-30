@@ -11,8 +11,7 @@ import LoggedOut from "./LoggedOut";
 export default function Navigation() {
   const token = useSelector(selectToken);
   const { id } = useSelector(selectUser)
-
-  console.log(id)
+  const { isOwner }  = useSelector(selectUser)
 
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
@@ -25,7 +24,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path={`/info/${id}`} linkText="store info" />
+          {isOwner ? <NavbarItem path={`/info/${id}`} linkText="store info" /> : null}
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

@@ -15,6 +15,12 @@ export default function SpaceDetails() {
     dispatch(fetchStoreById(id));
   }, [dispatch, id]);
 
+  const displayButton =
+    id === storeDetails.userId;
+
+    console.log("WHAT IS USER", storeDetails)
+
+
   return (
     <> 
       <Jumbotron>
@@ -40,9 +46,9 @@ export default function SpaceDetails() {
                    </Jumbotron>
                )
            })}
-          <Link to={`/add-product/${id}`}>
+          { displayButton ? <Link to={`/add-product/${id}`}>
            <Button>Add product</Button>
-          </Link> 
+          </Link> : null}
       </Container>
     </>
   )

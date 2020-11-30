@@ -12,8 +12,6 @@ export default function StoreInfo() {
     const dispatch = useDispatch()
     const userInfo = useSelector(selectUserInfo)
 
-    console.log("is this it", userInfo)
-
     useEffect(() => {
         dispatch(fetchUserById(id));
       }, [dispatch, id]);
@@ -36,13 +34,13 @@ export default function StoreInfo() {
                  <img src={user.store.image} alt="info-image"/>
                 </div>
                 <div className="info-address">
-                 <p><strong>country:</strong>
+                 <p><strong>country: </strong>
                  {user.store.country} <br />
-                 <strong>city:</strong>
+                 <strong>city: </strong>
                  {user.store.city} <br />
-                 <strong>address:</strong>
+                 <strong>address: </strong>
                  {user.store.address}<br />
-                 <strong>zip code:</strong>
+                 <strong>zip code: </strong>
                  {user.store.postCode}</p>
                 </div>
                 <div className="info-description">

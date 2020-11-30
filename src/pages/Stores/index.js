@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { Button, Container, Jumbotron } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
@@ -16,6 +16,7 @@ export default function Stores() {
     useEffect(() => {
         dispatch(fetchStores());
       }, [dispatch]);
+
 
     return (
     <> 
