@@ -226,9 +226,9 @@ export default function SignUp() {
         </Form.Row>
 
         <Form.Group controlId="formBasicDescription">
-          <Form.Label for="FormControlTextarea1">Description</Form.Label>
+          <Form.Label>Description</Form.Label>
           <textarea 
-            class="form-control" 
+            className="form-control" 
             id="exampleFormControlTextarea1"
             rows="3"
             value={description}

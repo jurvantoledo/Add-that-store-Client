@@ -48,16 +48,19 @@ export default function AddProduct() {
               required
             />
           </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              value={productDescription}
-              onChange={event => setProductDescription(event.target.value)}
-              type="text"
-              placeholder="set description"
-              required
-            />
-          </Form.Group>
+          <Form.Group controlId="formBasicDescription">
+          <Form.Label>Description</Form.Label>
+          <textarea 
+            className="form-control" 
+            id="exampleFormControlTextarea1"
+            rows="3"
+            value={productDescription}
+            onChange={event => setProductDescription(event.target.value)}
+            type="text"
+            placeholder="Description"
+            required
+          ></textarea>
+        </Form.Group>
   
           <Form.Group >
           <Form.Label>Store picture</Form.Label>

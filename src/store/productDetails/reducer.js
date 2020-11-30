@@ -1,0 +1,15 @@
+import { PRODUCT_DETAILS_FETCHED } from "./actions";
+
+const initialState = { 
+    product: {}
+}; 
+
+export default (state = initialState, { type, payload }) => {
+  switch (type) {  
+    case PRODUCT_DETAILS_FETCHED:
+      return { ...state, ...payload };
+
+    default:
+      return state;
+  }
+};

@@ -10,7 +10,7 @@ export default function SpaceDetails() {
   const { id } = useParams();
   const storeDetails = useSelector(selectStoreDetails);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchStoreById(id));
   }, [dispatch, id]);
@@ -34,7 +34,9 @@ export default function SpaceDetails() {
                        <p><strong>Description:</strong></p>
                        <p>{product.description}</p>
                     </div>
+                  <Link to={`/product/${product.id}`}>
                     <Button>See info about product</Button>
+                  </Link> 
                    </Jumbotron>
                )
            })}

@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
+import ProductDetails from "./pages/ProductDetails";
 
 const Home = () => (
   <Jumbotron>
@@ -48,6 +49,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/store/:id" component={StoreDetails} />
+        <Route path="/product/:id" component={ProductDetails} />
         <Route path="/add-product" component={AddProduct} />
       </Switch>
     </div>
