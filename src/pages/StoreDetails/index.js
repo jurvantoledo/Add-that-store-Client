@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Button, Jumbotron, Container } from "react-bootstrap"
 import { Col } from "react-bootstrap";
 import { fetchStoreById } from "../../store/storeDetails/actions";
@@ -10,6 +10,7 @@ export default function SpaceDetails() {
   const { id } = useParams();
   const storeDetails = useSelector(selectStoreDetails);
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(fetchStoreById(id));
   }, [dispatch, id]);
@@ -37,6 +38,9 @@ export default function SpaceDetails() {
                    </Jumbotron>
                )
            })}
+          <Link to={`/add-product/${id}`}>
+           <Button>Add product</Button>
+          </Link> 
       </Container>
     </>
   )

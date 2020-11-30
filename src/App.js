@@ -10,6 +10,8 @@ import Login from "./pages/Login";
 import AddStore from "./pages/AddStore"
 import Stores from "./pages/Stores"
 import StoreDetails from "./pages/StoreDetails";
+import AddProduct from "./pages/AddProduct"
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -46,6 +48,7 @@ function App() {
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
         <Route path="/store/:id" component={StoreDetails} />
+        <Route path="/add-product" component={AddProduct} />
       </Switch>
     </div>
   );
