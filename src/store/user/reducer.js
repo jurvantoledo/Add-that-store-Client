@@ -1,9 +1,14 @@
-import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID, STORE_POST_SUCCESS } from "./actions";
+import { 
+  LOG_OUT, 
+  LOGIN_SUCCESS, 
+  TOKEN_STILL_VALID, 
+  STORE_POST_SUCCESS
+} from "./actions";
 
 const initialState = {
   token: localStorage.getItem("token"),
   name: null,
-  email: null
+  email: null,
 };
 
 export default (state = initialState, action) => {
