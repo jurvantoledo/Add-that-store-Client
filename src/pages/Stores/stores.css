@@ -3,3 +3,26 @@
   max-height: 350px;
   max-width: 350px;
 }
+
+.mt-5.container.col-md-12 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container .mt-12.jumbotron.col-md-3 {
+  background-color: unset;
+  border: 2px solid #720026;
+  box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+  margin: 0 55px 10px;
+}
+
+button.btn-primary {
+  font-weight: bold;
+  border-color: #720026;
+  background-color: #720026;
+}
+button.btn-primary:hover {
+  background-color: #4f000b;
+  border-color: #4f000b;
+}

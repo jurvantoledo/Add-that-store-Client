@@ -20,13 +20,13 @@ export default function Stores() {
 
     return (
     <> 
-        <Jumbotron>
+        <Jumbotron className="Homepage-title">
             <h1>Hello</h1>
         </Jumbotron>
-        <Container as={Col} md={{ span: 4 }} className="mt-5">
+        <Container as={Col} md={{ span: 12 }} className="mt-5">
             {stores.map(store => {
                 return(
-                    <Jumbotron key={store.id} as={Col} md={{ span: 12 }} className="mt-12">
+                    <Jumbotron key={store.id} as={Col} md={{ span: 3 }} className="mt-12">
                         <h2>{store.name}</h2>
                     <div className="figure">
                         <img src={store.image} />
