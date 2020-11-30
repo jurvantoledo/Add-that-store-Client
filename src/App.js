@@ -11,6 +11,7 @@ import AddStore from "./pages/AddStore"
 import Stores from "./pages/Stores"
 import StoreDetails from "./pages/StoreDetails";
 import AddProduct from "./pages/AddProduct"
+import StoreInfo from "./pages/StoreInfo"
 
 
 import { useDispatch, useSelector } from "react-redux";
@@ -51,6 +52,7 @@ function App() {
         <Route path="/store/:id" component={StoreDetails} />
         <Route path="/product/:id" component={ProductDetails} />
         <Route path="/add-product" component={AddProduct} />
+        <Route path="/info/:id" component={StoreInfo} />
       </Switch>
     </div>
   );

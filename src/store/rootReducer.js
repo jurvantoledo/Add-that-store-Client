@@ -4,6 +4,7 @@ import user from "./user/reducer";
 import stores from "./stores/reducer"
 import storeDetails from "./storeDetails/reducer";
 import productDetails from "./productDetails/reducer"
+import userInfo from "./userInfo/reducer"
 
 export default combineReducers({
   appState,
@@ -11,4 +12,5 @@ export default combineReducers({
   stores,
   storeDetails,
   productDetails,
+  userInfo,
 });
