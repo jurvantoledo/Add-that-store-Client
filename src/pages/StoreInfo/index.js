@@ -3,8 +3,10 @@ import { Button, Container, Jumbotron } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectUser } from "../../store/user/selectors";
+import { Link } from "react-router-dom";
 import { fetchUserById } from "../../store/userInfo/actions";
 import { selectUserInfo } from "../../store/userInfo/selectors";
+import { selectStores } from "../../store/stores/selectors";
 
 
 export default function StoreInfo() {
@@ -47,10 +49,13 @@ export default function StoreInfo() {
                  <p><strong>description:</strong><br />
                  {user.store.description} </p>
                 </div>
+                <Link to={`/store/${user.id}`} >
+                        <Button>Go to store</Button>
+                    </Link>      
              </Jumbotron>
             </Container>  
                 )   
-            })}        
+            })}     
     </>        
     )
 }
