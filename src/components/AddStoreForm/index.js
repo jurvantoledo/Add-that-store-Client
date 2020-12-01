@@ -11,7 +11,6 @@ import ImageUploader from "../ImageUploader/ImageUploader"
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Error from "../CountriesDropdown/Error";
 
 
 const ValidationSchema = Yup.object().shape({
@@ -42,7 +41,6 @@ export default function SignUp() {
     ]
   })
 
-  console.log(country)
 
   function submitForm(event) {
     event.preventDefault();
@@ -235,8 +233,14 @@ export default function SignUp() {
             onChange={event => setDescription(event.target.value)}
             type="text"
             placeholder="Description"
+            disabled={description.length > 255 ? true : false}
             required
-          ></textarea>
+          >
+          </textarea>
+          <Form.Text>
+            <strong>Max 255 Characters: {" "}
+              {description.length}</strong>
+          </Form.Text>
         </Form.Group>
 
         <Form.Group controlId="formBasicCategory">
@@ -287,19 +291,3 @@ export default function SignUp() {
     </Container>
   );
 }
-
-/*          <Form.Group controlId="formCountry">
-          <Form.Label>Country</Form.Label>
-          <Form.Control as="select" 
-          onChange={(e) => setCountry(e)}>
-            {countries.map((country) => {
-              return <option key={country.id} value={country.name}>{country.name}</option>;
-              })}
-            </Form.Control>
-            {country ? (
-          <div>
-            <p>Country preview:</p>
-            <p>{country}</p>
-          </div>
-        ) : null}
-        </Form.Group>*/
