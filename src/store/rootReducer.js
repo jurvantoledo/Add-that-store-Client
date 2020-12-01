@@ -5,6 +5,7 @@ import stores from "./stores/reducer"
 import storeDetails from "./storeDetails/reducer";
 import productDetails from "./productDetails/reducer"
 import userInfo from "./userInfo/reducer"
+import feed from "./feed/reducer"
 
 export default combineReducers({
   appState,
@@ -13,4 +14,5 @@ export default combineReducers({
   storeDetails,
   productDetails,
   userInfo,
+  feed
 });

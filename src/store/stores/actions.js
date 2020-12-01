@@ -1,4 +1,4 @@
-import { apiUrl } from "../../config/constants";
+import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 import axios from "axios";
 import { 
     appDoneLoading, 
@@ -23,8 +23,9 @@ export const productPostSuccess = store => ({
 
 export const fetchStores = () => {
     return async (dispatch, getState) => {
+    const storeCount = getState().stores.length;
     const response = await axios.get(
-        `${apiUrl}/store`
+        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
     );
       
           console.log(response.data);
