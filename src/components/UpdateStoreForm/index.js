@@ -4,7 +4,7 @@ import { Button, Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateStore } from "../../store/stores/actions";
+import { updateStore } from "../../store/user/actions";
 import { selectStores } from "../../store/stores/selectors";
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
@@ -82,6 +82,7 @@ export default function UpdateStoreForm() {
   return (
     <div className="update-profile-form-container">
       <Button
+        className="update-button"
         variant="outline-danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >

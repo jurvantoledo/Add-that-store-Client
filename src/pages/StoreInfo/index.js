@@ -2,11 +2,9 @@ import React, { useEffect } from "react"
 import { Button, Container, Jumbotron } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectUser } from "../../store/user/selectors";
 import { Link } from "react-router-dom";
 import { fetchUserById } from "../../store/userInfo/actions";
 import { selectUserInfo } from "../../store/userInfo/selectors";
-import { selectStores } from "../../store/stores/selectors";
 import UpdateStoreForm from "../../components/UpdateStoreForm/index"
 import UpdateUserForm from "../../components/UpdateUserForm/index"
 
@@ -69,8 +67,7 @@ export default function StoreInfo() {
                 </div>
                 <Link to={`/store/${user.store.id}`} >
                         <Button>Go to store</Button>
-                    </Link>
-                    <UpdateStoreForm />      
+                </Link>
              </Jumbotron>
             </Container>  
                 )   

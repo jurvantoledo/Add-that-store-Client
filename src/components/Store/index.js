@@ -8,10 +8,11 @@ import { Col } from "react-bootstrap";
 export default function Store(props) {
   return (
     <Jumbotron key={props.id} as={Col} md={{ span: 3 }} className="mt-12">
-                        <h2>{props.name}</h2>
-                    <div className="figure">
-                        <img src={props.image} />
-                    </div>  
+                    <div className="figure" 
+                     style={{ backgroundImage: `url(${props.image})` }}
+                    >
+                    </div> 
+                        <h2>{props.name}</h2> 
                     <div className="description">
                        <p><strong>Description:</strong></p>
                         <p>{props.description}</p>

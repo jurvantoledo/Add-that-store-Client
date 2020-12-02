@@ -4,13 +4,15 @@ import {
   TOKEN_STILL_VALID, 
   STORE_POST_SUCCESS,
   UPDATE_USER_SUCCESS,
-  UPDATE_PASSWORD_SUCCESS
+  UPDATE_PASSWORD_SUCCESS,
+  UPDATE_STORE_SUCCESS
 } from "./actions";
 
 const initialState = {
   token: localStorage.getItem("token"),
   name: null,
   email: null,
+  stores: []
 };
 
 export default (state = initialState, action) => {
@@ -18,7 +20,10 @@ export default (state = initialState, action) => {
 
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
-      return { ...state, ...action.payload };
+      return { ...state, ...action.payload, store: {
+        ...state.store, 
+        ...action.payload
+      }};
 
     case LOG_OUT:
       localStorage.removeItem("token");
@@ -41,6 +46,12 @@ export default (state = initialState, action) => {
 
     case UPDATE_PASSWORD_SUCCESS:
       return { ...state, ...action.payload };
+
+      case UPDATE_STORE_SUCCESS:
+        return {...state, stores: {
+          ...state.stores, ...action.payload
+        } 
+      };
 
     default:
       return state;

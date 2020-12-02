@@ -47,7 +47,9 @@ export default function Stores() {
 
     return (
     <> 
-        <Jumbotron className="Homepage-title">
+        <Jumbotron className="Homepage-banner"
+          style={{ backgroundImage: `url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)` }}
+        >
             <h1>Hello</h1>
         </Jumbotron>
         <Container as={Col} md={{ span: 12 }} className="mt-5">

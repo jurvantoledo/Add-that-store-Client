@@ -35,6 +35,7 @@ export default function UpdateUserForm() {
   return (
     <div className="update-profile-form-container">
       <Button
+        className="update-button"
         variant="outline-danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >

@@ -11,7 +11,7 @@ export const productDeleteSuccess = userId => ({
   payload: userId
 });
 
-const storeDetailsFetched = store => ({
+export const storeDetailsFetched = store => ({
   type: STORE_DETAILS_FETCHED,
   payload: store
 });

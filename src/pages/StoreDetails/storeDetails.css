@@ -1,0 +1,12 @@
+.jumbotron .product-figure {
+  background-size: cover;
+  height: 225px;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.jumbotron .product-name {
+  margin-top: 180px;
+}

@@ -1,3 +1,44 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  background-color: unset !important;
+}
+
+.navbar-light .navbar-brand {
+  font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link.active {
+  font-weight: bold;
+}
+
+.Homepage-banner.jumbotron {
+  background-image: url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  height: 750px;
+  background-size: cover;
+  background-position-y: center;
+  position: relative;
+}
+
+.Homepage-banner.jumbotron::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(0, 28, 85, 0.2) 0%,
+    rgba(10, 36, 114, 0.25) 35%
+  );
+}
+
+.Homepage-banner h1 {
+  text-align: center;
+  color: #fff;
+  padding-top: 250px;
+  position: relative;
+  z-index: 999;
+}
+
 .jumbotron .figure img {
   position: relative;
   max-height: 350px;
@@ -13,19 +54,43 @@
 
 .container .mt-12.jumbotron.col-md-3 {
   background-color: unset;
-  border: 2px solid #720026;
+  overflow: hidden;
+  border: 2px solid #001c55;
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
   margin: 0 55px 10px;
 }
 
+.jumbotron .figure {
+  background-size: cover;
+  height: 225px;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mt-5.container.col-md-12 .jumbotron h2 {
+  padding-top: 185px;
+}
+
+.mt-5.container.col-md-12 .jumbotron button.btn.btn-primary {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 button.btn-primary {
   font-weight: bold;
-  border-color: #720026;
-  background-color: #720026;
+  border-color: #001c55;
+  background-color: #001c55;
 }
 button.btn-primary:hover {
-  background-color: #4f000b;
-  border-color: #4f000b;
+  border-color: #00072d;
+  background-color: #00072d;
+  box-shadow: 0px 1px 3px 1px rgba(0, 28, 85, 1);
 }
 button.load-more.btn.btn-primary {
   width: 100%;

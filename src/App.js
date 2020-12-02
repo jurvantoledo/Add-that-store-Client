@@ -19,6 +19,7 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
 import ProductDetails from "./pages/ProductDetails";
+import UpdateStore from "./pages/UpdateStore";
 
 const Home = () => (
   <Jumbotron>
@@ -53,6 +54,7 @@ function App() {
         <Route path="/product/:id" component={ProductDetails} />
         <Route path="/add-product" component={AddProduct} />
         <Route path="/info/:id" component={StoreInfo} />
+        <Route path="/update-store/:id" component={UpdateStore} />
       </Switch>
     </div>
   );
