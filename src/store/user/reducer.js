@@ -2,7 +2,9 @@ import {
   LOG_OUT, 
   LOGIN_SUCCESS, 
   TOKEN_STILL_VALID, 
-  STORE_POST_SUCCESS
+  STORE_POST_SUCCESS,
+  UPDATE_USER_SUCCESS,
+  UPDATE_PASSWORD_SUCCESS
 } from "./actions";
 
 const initialState = {
@@ -33,6 +35,12 @@ export default (state = initialState, action) => {
             ...action.payload
           }
         };
+
+      case UPDATE_USER_SUCCESS:
+       return { ...state, ...action.payload };
+
+    case UPDATE_PASSWORD_SUCCESS:
+      return { ...state, ...action.payload };
 
     default:
       return state;

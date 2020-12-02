@@ -15,7 +15,6 @@ import {
 } from "../../store/feed/actions";
 import { selectFeedLoading, selectFeedStores } from "../../store/feed/selectors";
 
-
 import "./stores.css";
 
 export default function Stores() {
@@ -44,6 +43,8 @@ export default function Stores() {
       console.log("More STORES", moreStores);
     }
 
+    console.log(feedStores)
+
     return (
     <> 
         <Jumbotron className="Homepage-title">
@@ -71,7 +72,8 @@ export default function Stores() {
         {loading ?
       <em>loading...</em> : null}
      <div>
-      <Button onClick={fetchNext5Stores}>Load more</Button>
+      { feedStores ? <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
+      : <Button className="load-more" disabled onClick={fetchNext5Stores}>Load more</Button>}
       </div> 
 
     </>
