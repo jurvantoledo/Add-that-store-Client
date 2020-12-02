@@ -8,6 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 3rem;
 }
 
 .container .mt-12.jumbotron.col-md-3 {
@@ -25,4 +26,9 @@ button.btn-primary {
 button.btn-primary:hover {
   background-color: #4f000b;
   border-color: #4f000b;
+}
+button.load-more.btn.btn-primary {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
