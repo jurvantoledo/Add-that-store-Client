@@ -26,7 +26,9 @@ export const updateStoreSuccess = (store) => {
 
 export const fetchUserById = id => {
     return async (dispatch, getState) => {
-      const response = await axios.get(`${apiUrl}user/${id}`);
+      const response = await axios.get(
+        `${apiUrl}user/${id}?limit=${DEFAULT_PAGINATION_LIMIT}&offset=0`
+        );
       console.log(response);
       dispatch(userDetailsFetched(response.data.user));
     };
