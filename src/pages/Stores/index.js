@@ -4,7 +4,6 @@ import axios from "axios";
 import { Container, Jumbotron } from "react-bootstrap"
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux"
-import { fetchStores } from "../../store/stores/actions"
 import { Col } from "react-bootstrap";
 import Store from "../../components/Store/index"
 import {
@@ -24,9 +23,7 @@ export default function Stores() {
   
     useEffect(() => {
         dispatch(fetchNext5Stores);
-        dispatch(fetchStores)
         
-      // eslint-disable-line react-hooks/exhaustive-deps
       }, [dispatch]);
   
     async function fetchNext5Stores() {

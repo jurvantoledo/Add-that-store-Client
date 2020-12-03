@@ -1,5 +1,6 @@
 import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 import axios from "axios";
+import { appDoneLoading } from "../appState/actions";
 
 export function startLoading() {
   return {
@@ -14,17 +15,17 @@ export function storesFetched(stores) {
   };
 }
 
-export const fetchNext5Stores = () => {
+export const fetchNext5Stores = (stores) => {
     return async (dispatch, getState) => {
-    const storeCount = getState().stores.length;
-    const response = await axios.get(
-        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
+      dispatch(startLoading);
+      const response = await axios.get(
+        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${stores.length}`
       );
-      
+  
       const moreStores = response.data.stores.rows;
   
       dispatch(storesFetched(moreStores));
-      dispatch(startLoading);
-      console.log(moreStores);
+      dispatch(appDoneLoading)
+      console.log("More STORES", moreStores);
     };
 };

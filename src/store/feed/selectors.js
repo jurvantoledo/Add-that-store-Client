@@ -3,6 +3,6 @@ export function selectFeedLoading(reduxState) {
   }
   
   export function selectFeedStores(reduxState) {
-      console.log("console logged from selector",reduxState.feed.stores)
+      console.log("console logged from selector",reduxState.feed)
     return reduxState.feed.stores;
   }
