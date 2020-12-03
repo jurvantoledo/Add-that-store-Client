@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { updatePassword, updateUserProfile } from "../../store/user/actions";
 import { selectUser } from "../../store/user/selectors";
 import { selectUserInfo } from "../../store/userInfo/selectors";

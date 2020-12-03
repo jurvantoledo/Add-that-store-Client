@@ -18,8 +18,6 @@ export default function Stores() {
     const dispatch = useDispatch()
     const feedStores = useSelector(selectFeedStores)
     const loading = useSelector(selectFeedLoading);
-
-    console.log("Is this FEEDSTORES",feedStores)
   
     useEffect(() => {
         dispatch(fetchNext5Stores);
@@ -36,17 +34,13 @@ export default function Stores() {
       const moreStores = response.data.stores.rows;
   
       dispatch(storesFetched(moreStores));
-      console.log("More STORES", moreStores);
     }
-
-    console.log(feedStores)
 
     return (
     <> 
         <Jumbotron className="Homepage-banner"
           style={{ backgroundImage: `url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)` }}
         >
-            <h1>Hello</h1>
         </Jumbotron>
         <Container as={Col} md={{ span: 12 }} className="mt-5">
             {feedStores.map(store => {
@@ -70,10 +64,8 @@ export default function Stores() {
         {loading ?
       <em>loading...</em> : null}
      <div>
-      { fetchNext5Stores === 0 ? <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
-      : <Button style={{display: "none"}} className="load-more" onClick={fetchNext5Stores}>Load more</Button>}
+      <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
       </div> 
-
     </>
     )
 }

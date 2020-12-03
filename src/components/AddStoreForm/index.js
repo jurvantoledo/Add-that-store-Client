@@ -4,15 +4,13 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { addStore } from "../../store/user/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader"
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { selectUser } from "../../store/user/selectors";
-
 
 const ValidationSchema = Yup.object().shape({
   country: Yup.string()

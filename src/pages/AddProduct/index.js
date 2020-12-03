@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { addProduct } from "../../store/stores/actions";
 import ImageUploader from "../../components/ImageUploader/ImageUploader"
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
