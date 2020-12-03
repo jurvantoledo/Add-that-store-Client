@@ -30,7 +30,7 @@ export default function StoreInfo() {
                  <h1>{user.name}'s Profile</h1>
              </div>
              </Jumbotron>
-            <Container className="all-info-user" as={Col} md={{ span: 12 }} className="mt-5">
+            <Container className="all-info-user" as={Col} md={{ span: 12 }}>
              <Jumbotron className="info-profile-content" as={Col} md={{ span: 6 }} >
               <div className="user-info">
                   <h2 className="title">Your user info</h2>     
@@ -45,7 +45,7 @@ export default function StoreInfo() {
              </div>
              <UpdateUserForm />
              </Jumbotron>
-             <Jumbotron className="info-store-content" as={Col} md={{ span: 6 }} className="mt-12"> 
+             <Jumbotron className="info-store-content" as={Col} md={{ span: 6 }}> 
              <div className="info-image" 
                 style={{ backgroundImage: `url(${user.store.image})` }}
              >

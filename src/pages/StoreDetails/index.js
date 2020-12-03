@@ -27,6 +27,8 @@ export default function SpaceDetails() {
     dispatch(deleteProduct(id));
   };
 
+  console.log(onDelete)
+
   return (
     <> 
       <Jumbotron className="storeDetails-title"

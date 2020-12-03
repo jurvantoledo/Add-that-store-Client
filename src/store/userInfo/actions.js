@@ -7,7 +7,7 @@ import {
   showMessageWithTimeout 
 } from "../appState/actions";
 import { selectToken } from "../user/selectors";
-import { selectUserInfo, selectUserStoreInfo } from "./selectors";
+import { selectUserInfo } from "./selectors";
 
 export const USER_DETAILS_FETCHED = "USER_DETAILS_FETCHED";
 export const UPDATE_STORE_SUCCESS = "UPDATE_STORE_SUCCESS"

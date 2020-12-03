@@ -7,6 +7,11 @@
   );
 }
 
+.all-info-user.container.col-md-12 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .jumbotron.col-md-6 {
   background-color: unset;
   border: 2px solid #001c55;

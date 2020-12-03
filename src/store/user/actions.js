@@ -1,15 +1,12 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken, selectStore, selectUser } from "./selectors";
+import { selectToken, selectStore } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
   showMessageWithTimeout,
   setMessage
 } from "../appState/actions";
-import { selectUserInfo } from "../userInfo/selectors";
-import { selectStores } from "../stores/selectors";
-import { selectStoreDetails } from "../storeDetails/selectors";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";

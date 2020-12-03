@@ -1,6 +1,5 @@
 import { 
   USER_DETAILS_FETCHED,
-  UPDATE_STORE_SUCCESS
 } from "./actions";
 
 const initialState = [];

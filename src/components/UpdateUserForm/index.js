@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updatePassword, updateUserProfile } from "../../store/user/actions";
 
 export default function UpdateUserForm() {

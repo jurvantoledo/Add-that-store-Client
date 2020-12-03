@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -19,7 +19,7 @@ export default function SignUp() {
   const history = useHistory();
   const { id } = useSelector(selectUser)
 
-  console.log(id)
+  console.log(isOwner)
 
   useEffect(() => {
     if (token !== null) {
@@ -28,7 +28,7 @@ export default function SignUp() {
     if (isOwner === true) {
       history.push(`/add-store/${id}`);
     }
-  }, [token, history, id]);
+  }, [token, history, id, isOwner]);
 
   function submitForm(event) {
     event.preventDefault();
@@ -39,17 +39,9 @@ export default function SignUp() {
     setPassword("");
     setName("");
     setPhone("")
+    setIsOwner(true || false)
   }
 
-  const toggleTrue = useCallback(
-    () => setIsOwner(true),
-    [isOwner, setIsOwner],
-  );
-
-  const toggleFalse = useCallback(
-    () => setIsOwner(false),
-    [isOwner, setIsOwner],
-  );
   
 
 
@@ -111,7 +103,7 @@ export default function SignUp() {
           name="Radios"
           id="Radio1"
           value={isOwner}
-          onChange={event => toggleTrue(event.target.value)}        
+          onChange={event => setIsOwner(true)}        
           />
         <Form.Check
           type="radio"
@@ -119,7 +111,7 @@ export default function SignUp() {
           name="Radios"
           id="Radio1"
           value={isOwner}
-          onChange={event => toggleFalse(event.target.value)}        
+          onChange={event => setIsOwner(false)}        
           />
       </Form.Group>
 
