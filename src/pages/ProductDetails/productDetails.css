@@ -1,0 +1,30 @@
+.productDetail-title.jumbotron {
+  background: linear-gradient(
+    200deg,
+    rgba(166, 225, 250, 0.5) 0%,
+    rgba(14, 107, 168, 1) 75%
+  );
+  color: #fff;
+}
+
+.product-container.container.col-md-12 {
+  text-align: center;
+}
+
+.product-info.jumbotron.col-md-12 {
+  background-color: unset;
+  width: 750px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.product-container .image-box {
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
+  background-size: cover;
+  margin: 0 auto;
+  border: 1px solid #0e6ba8;
+  box-shadow: 0px 0px 3px 0px rgba(0, 28, 85, 1);
+}

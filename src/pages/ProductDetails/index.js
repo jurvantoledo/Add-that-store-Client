@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
-import { Container, Jumbotron } from "react-bootstrap";
+import { Col, Container, Jumbotron } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchProductById } from "../../store/productDetails/actions";
 import { selectProductDetails } from "../../store/productDetails/selectors";
+import "./productDetails.css";
 
 
 export default function ProductDetails() {
@@ -19,13 +20,21 @@ export default function ProductDetails() {
 
 return (
    <> 
-    <Jumbotron>
+    <Jumbotron className="productDetail-title">
         <h1>{productDetails.name}</h1>
     </Jumbotron>
-    <Container>
-        <Jumbotron className="product-info">
-            <img src={productDetails.image} alt="product-image"/>
-            <p className="product-desc">{productDetails.description}</p>
+    <Container className="product-container" as={Col} md={{ span: 12 }}>
+        <Jumbotron className="product-info" as={Col} md={{ span: 12 }}>
+            <div className="image-box"
+              style={{ backgroundImage: `url(${productDetails.image})` }}
+            ></div>
+            <div className="productDetails-name">
+                <h3>{productDetails.name}</h3>
+            </div>
+          <div className="product-desc">
+            <div><p><strong>Description:</strong><br /> 
+            {productDetails.description}</p></div>
+            </div>
         </Jumbotron>
     </Container>
     </> 
