@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { updatePassword, updateUserProfile } from "../../store/user/actions";
+import { selectUserInfo } from "../../store/userInfo/selectors";
 
 export default function UpdateUserForm() {
     const dispatch = useDispatch();
@@ -13,6 +15,8 @@ export default function UpdateUserForm() {
     const [phone, setPhone] = useState("");
     const [editForm, setEditForm] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
+    const userInfo = useSelector(selectUserInfo)
+    const { id } = useParams()
 
   function submitForm(event) {
     event.preventDefault();
@@ -33,16 +37,16 @@ export default function UpdateUserForm() {
   }
 
   return (
-    <div className="update-profile-form-container">
-      <Button
+     <div className="update-profile-form-container">
+      {userInfo.id === id ? <Button
         className="update-button"
         variant="outline-danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >
         Update profile
-      </Button>
+      </Button> : null}
       <div>
-        <Button
+      {userInfo.id === id ? <Button
           className="mt-2"
           variant="outline-danger"
           onClick={(e) =>
@@ -50,7 +54,7 @@ export default function UpdateUserForm() {
           }
         >
           Change password
-        </Button>
+        </Button> : null}
         {editForm ? (
           <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
             <h1 className="mt-5 mb-2">Update profile</h1>
