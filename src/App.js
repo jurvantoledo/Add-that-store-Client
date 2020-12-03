@@ -34,7 +34,7 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
-        <Route exact path="/" component={Stores} />
+        <Route exact={true} path="/" component={Stores} />
         <Route path="/add-store" component={AddStore} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />

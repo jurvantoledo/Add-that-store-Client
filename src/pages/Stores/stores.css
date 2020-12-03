@@ -5,7 +5,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 .navbar-light .navbar-brand {
   font-weight: bold;
 }
-.navbar-light .navbar-nav .nav-link.active {
+.navbar-light .nav-link.active {
   font-weight: bold;
 }
 
