@@ -204,7 +204,7 @@ export default function UpdateStoreForm() {
             </Form.Group>
 
             <Form.Row>
-      <Form.Group controlId="formAddress" className="col-md-10">
+      <Form.Group controlId="formAddress" className="col-md-12">
           <Form.Label>address</Form.Label>
           <Form.Control
             value={address}
@@ -215,7 +215,7 @@ export default function UpdateStoreForm() {
           />
         </Form.Group>
 
-        <Form.Group controlId="formZipCode" className="col-md-2">
+        <Form.Group controlId="formZipCode" className="col-md-12">
           <Form.Label>Zip</Form.Label>
           <Form.Control
             value={postCode}
