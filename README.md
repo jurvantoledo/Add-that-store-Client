@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm Jur van Toledo</h1>
+<h1 align="center">Hi, I'm Jur van Toledo</h1>
 <h3 align="center">A junior full-stack developer from The Netherlands</h3>
 
 - 🔭 I’m currently working on [Add a Store client](https://github.com/jurvantoledo/add-that-store-client)
