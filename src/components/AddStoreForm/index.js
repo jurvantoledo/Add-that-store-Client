@@ -24,6 +24,8 @@ const ValidationSchema = Yup.object().shape({
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser)
+  const history = useHistory()
   const [suggestions, setSuggestions] = useState([]);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -41,6 +43,12 @@ export default function SignUp() {
      {label: "Food & Gifts", value: "Food & Gifts"},
     ]
   })
+
+  console.log(user)
+
+  if(user.id = user.userId) {
+    history.push("/")
+  }
 
   function submitForm(event) {
     event.preventDefault();
