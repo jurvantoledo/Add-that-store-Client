@@ -71,7 +71,7 @@ export default function Stores() {
       <em>loading...</em> : null}
      <div>
       { fetchNext5Stores === 0 ? <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
-      : <Button className="load-more" disabled >Load more</Button>}
+      : <Button style={{display: "none"}} className="load-more" onClick={fetchNext5Stores}>Load more</Button>}
       </div> 
 
     </>
