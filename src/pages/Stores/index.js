@@ -30,7 +30,7 @@ export default function Stores() {
       dispatch(startLoading);
       const storeCount = feedStores.length;
       const response = await axios.get(
-        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
+        `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
       );
   
       const moreStores = response.data.stores.rows;
