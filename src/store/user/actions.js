@@ -1,6 +1,6 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
-import { selectToken, selectStore } from "./selectors";
+import { selectToken, selectStore, selectUser } from "./selectors";
 import {
   appLoading,
   appDoneLoading,
@@ -17,7 +17,6 @@ export const LOG_OUT = "LOG_OUT";
 export const STORE_POST_SUCCESS = "STORE_POST_SUCCESS";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS"
 export const UPDATE_PASSWORD_SUCCESS= "UPDATE_PASSWORD_SUCCESS"
-export const UPDATE_STORE_SUCCESS = "UPDATE_STORE_SUCCESS"
 
 
 const loginSuccess = userWithToken => {
@@ -50,13 +49,6 @@ export const updatePasswordSuccess = (updateUserPassword) => {
   return {
     type: UPDATE_PASSWORD_SUCCESS,
     payload: updateUserPassword,
-  };
-};
-
-export const updateStoreSuccess = (store) => {
-  return {
-    type: UPDATE_STORE_SUCCESS,
-    payload: store,
   };
 };
 
@@ -239,50 +231,6 @@ export const updatePassword = (password) => {
       dispatch(
         showMessageWithTimeout("success", true, "Password succesfully updated.")
       );
-      dispatch(appDoneLoading());
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response.data.message);
-        dispatch(setMessage("danger", true, error.response.data.message));
-      } else {
-        console.log(error.message);
-        dispatch(setMessage("danger", true, error.message));
-      }
-      dispatch(appDoneLoading());
-    }
-  };
-};
-
-export const updateStore = (name, image, description, country, city, address, postCode, category) => {
-  return async (dispatch, getState) => {
-    const { id } = selectStoreDetails(getState());
-    const token = selectToken(getState());
-    dispatch(appLoading());  
-    console.log("THIS IS STORE", id)
-
-    try {
-      const response = await axios.patch(
-        `${apiUrl}/store/${id}`,
-        {
-          name,
-          image,
-          description,
-          country,
-          city,
-          address,
-          postCode,
-          category,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-
-      console.log("This is response", response)
-
-
-      dispatch(updateStoreSuccess(response.data));
-      dispatch(showMessageWithTimeout("success", true, "Store updated."));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {

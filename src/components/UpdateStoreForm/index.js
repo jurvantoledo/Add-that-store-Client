@@ -4,7 +4,7 @@ import { Button, Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateStore } from "../../store/user/actions";
+import { updateStore } from "../../store/userInfo/actions";
 import { selectStores } from "../../store/stores/selectors";
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";

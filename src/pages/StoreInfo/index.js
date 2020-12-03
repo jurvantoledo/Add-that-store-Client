@@ -68,6 +68,7 @@ export default function StoreInfo() {
                 <Link to={`/store/${user.store.id}`} >
                         <Button>Go to store</Button>
                 </Link>
+                    <UpdateStoreForm /> 
              </Jumbotron>
             </Container>  
                 )   

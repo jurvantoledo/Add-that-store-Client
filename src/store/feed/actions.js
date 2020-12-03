@@ -25,6 +25,6 @@ export const fetchNext5Stores = () => {
   
       dispatch(storesFetched(moreStores));
       dispatch(startLoading);
-      console.log("AAAAHHHH",moreStores);
+      console.log(moreStores);
     };
 };
