@@ -85,7 +85,7 @@ export default function SignUp() {
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
         <h1 className="mt-5 mb-5">Add Store</h1>
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Name of Store</Form.Label>
           <Form.Control
             value={name}
             onChange={event => setName(event.target.value)}
