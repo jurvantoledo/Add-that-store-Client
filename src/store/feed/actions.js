@@ -19,7 +19,7 @@ export const fetchNext5Stores = (stores) => {
     return async (dispatch, getState) => {
       dispatch(startLoading);
       const response = await axios.get(
-        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${stores.length}`
+        `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${stores.length}`
       );
   
       const moreStores = response.data.stores.rows;

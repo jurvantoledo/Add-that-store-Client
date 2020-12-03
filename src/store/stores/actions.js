@@ -25,7 +25,7 @@ export const fetchStores = () => {
     return async (dispatch, getState) => {
     const storeCount = getState().stores.length;
     const response = await axios.get(
-        `${apiUrl}/store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
+        `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
     );
       
           console.log(response.data);
@@ -40,7 +40,7 @@ export const addProduct = (name, image, description) => {
       dispatch(appLoading());
       try {
         const response = await axios.post(
-          `${apiUrl}/store/${id}`, {
+          `${apiUrl}store/${id}`, {
           name,
           image,
           description

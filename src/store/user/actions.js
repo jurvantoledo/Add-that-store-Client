@@ -53,7 +53,7 @@ export const signUp = (name, email, password, phone, isOwner) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
-      const response = await axios.post(`${apiUrl}/signup`, {
+      const response = await axios.post(`${apiUrl}signup`, {
         name,
         email,
         password,
@@ -81,7 +81,7 @@ export const login = (email, password) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
     try {
-      const response = await axios.post(`${apiUrl}/login`, {
+      const response = await axios.post(`${apiUrl}login`, {
         email,
         password
       });
@@ -114,7 +114,7 @@ export const getUserWithStoredToken = () => {
     try {
       // if we do have a token,
       // check wether it is still valid or if it is expired
-      const response = await axios.get(`${apiUrl}/me`, {
+      const response = await axios.get(`${apiUrl}me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -142,7 +142,7 @@ export const addStore = (name, image, description, country, city, address, postC
     dispatch(appLoading());
     try {
       const response = await axios.post(
-        `${apiUrl}/user/${user.id}`, {
+        `${apiUrl}user/${user.id}`, {
         name,
         image,
         description,
@@ -178,7 +178,7 @@ export const updateUserProfile = (name, email, password, phone, isOwner) => {
 
     try {
       const response = await axios.patch(
-        `${apiUrl}/user/${user.id}`, {
+        `${apiUrl}user/${user.id}`, {
         name,
         email,
         password,
@@ -215,7 +215,7 @@ export const updatePassword = (password) => {
 
     try {
       const response = await axios.patch(
-        `${apiUrl}/user/${user.id}/password`,
+        `${apiUrl}user/${user.id}/password`,
         {
           password,
         },

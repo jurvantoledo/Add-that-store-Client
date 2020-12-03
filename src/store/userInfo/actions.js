@@ -26,7 +26,7 @@ export const updateStoreSuccess = (store) => {
 
 export const fetchUserById = id => {
     return async (dispatch, getState) => {
-      const response = await axios.get(`${apiUrl}/user/${id}`);
+      const response = await axios.get(`${apiUrl}user/${id}`);
       console.log(response);
       dispatch(userDetailsFetched(response.data.user));
     };
@@ -41,7 +41,7 @@ export const fetchUserById = id => {
     
       try {
         const response = await axios.patch(
-          `${apiUrl}/store/${store.store.id}`,
+          `${apiUrl}store/${store.store.id}`,
           {
             name,
             image,
