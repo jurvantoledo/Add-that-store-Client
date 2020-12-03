@@ -25,7 +25,7 @@ export default function SignUp() {
     if (token !== null) {
       history.push("/");
     }
-    if (isOwner === true) {
+    if (token !== null && isOwner === true) {
       history.push(`/add-store/${id}`);
     }
   }, [token, history, id, isOwner]);
