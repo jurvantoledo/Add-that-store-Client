@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
+import { apiUrl } from "../../config/constants";
 import { 
   appDoneLoading, 
   appLoading, 
