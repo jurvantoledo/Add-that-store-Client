@@ -70,8 +70,8 @@ export default function Stores() {
         {loading ?
       <em>loading...</em> : null}
      <div>
-      { feedStores ? <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
-      : <Button className="load-more" disabled onClick={fetchNext5Stores}>Load more</Button>}
+      { fetchNext5Stores === 0 ? <Button className="load-more" onClick={fetchNext5Stores}>Load more</Button>
+      : <Button className="load-more" disabled >Load more</Button>}
       </div> 
 
     </>
