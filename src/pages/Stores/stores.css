@@ -10,7 +10,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 }
 
 .Homepage-banner.jumbotron {
-  background-image: url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
   height: 750px;
   background-size: cover;
   background-position-y: center;
