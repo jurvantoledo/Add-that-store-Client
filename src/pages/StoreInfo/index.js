@@ -15,8 +15,6 @@ export default function StoreInfo() {
     const dispatch = useDispatch()
     const userInfo = useSelector(selectUserInfo)
 
-    console.log("This is userInfo", userInfo)
-
     useEffect(() => {
         dispatch(fetchUserById(id));
       }, [dispatch, id]);
