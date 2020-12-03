@@ -91,7 +91,7 @@ export default function UpdateStoreForm() {
       <div>
         {editForm ? (
           <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
-            <h1 className="mt-5 mb-2">Update profile</h1>
+            <h1 className="mt-5 mb-2">Update Store</h1>
             <Form.Group controlId="formBasicFirstName">
               <Form.Label>name</Form.Label>
               <Form.Control

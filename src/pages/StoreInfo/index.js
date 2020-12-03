@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Button, Container, Jumbotron } from "react-bootstrap"
+import { Button, Col, Container, Jumbotron } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -25,14 +25,15 @@ export default function StoreInfo() {
         {userInfo.map(user => {
             return (
             <Container key={user.id}>
-             <Jumbotron>
+             <Jumbotron className="info-header">
               <div className="info-title">     
                  <h1>{user.name}'s Profile</h1>
              </div>
              </Jumbotron>
-             <Jumbotron>
+            <Container className="all-info-user" as={Col} md={{ span: 12 }} className="mt-5">
+             <Jumbotron className="info-profile-content" as={Col} md={{ span: 6 }} >
               <div className="user-info">
-                  <h2>Your user info</h2>     
+                  <h2 className="title">Your user info</h2>     
                  <p><strong>Name:</strong> { " " } 
                  <span style={{fontSize: 25}}>{user.name}</span></p>
                  <p><strong>Email:</strong> { " " } 
@@ -44,12 +45,13 @@ export default function StoreInfo() {
              </div>
              <UpdateUserForm />
              </Jumbotron>
-             <Jumbotron> 
+             <Jumbotron className="info-store-content" as={Col} md={{ span: 6 }} className="mt-12"> 
+             <div className="info-image" 
+                style={{ backgroundImage: `url(${user.store.image})` }}
+             >
+                </div>
                 <div className="info-store-title">
                  <h1>{user.store.name}</h1>
-                </div>
-                <div className="info-image">
-                 <img src={user.store.image} alt="info-image"/>
                 </div>
                 <div className="info-address">
                  <p><strong>country: </strong>
@@ -70,6 +72,7 @@ export default function StoreInfo() {
                 </Link>
                     <UpdateStoreForm /> 
              </Jumbotron>
+             </Container>
             </Container>  
                 )   
             })}

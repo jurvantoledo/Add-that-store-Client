@@ -55,7 +55,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 .container .mt-12.jumbotron.col-md-3 {
   background-color: unset;
   overflow: hidden;
-  border: 2px solid #001c55;
+  border: 2px solid #0e6ba8;
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
   margin: 0 55px 10px;
 }
@@ -84,13 +84,19 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 
 button.btn-primary {
   font-weight: bold;
-  border-color: #001c55;
-  background-color: #001c55;
+  color: #fff;
+  border-color: #0e6ba8;
+  background-color: #0e6ba8;
 }
 button.btn-primary:hover {
-  border-color: #00072d;
-  background-color: #00072d;
-  box-shadow: 0px 1px 3px 1px rgba(0, 28, 85, 1);
+  border: 3px solid #0077be;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 1);
+  transition: 0.3s;
+  background: linear-gradient(
+    200deg,
+    rgba(166, 225, 250, 1) 0%,
+    rgba(14, 107, 168, 1) 75%
+  );
 }
 button.load-more.btn.btn-primary {
   width: 100%;

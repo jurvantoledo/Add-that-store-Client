@@ -1,3 +1,31 @@
+.storeDetails-title.jumbotron {
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0;
+  border: 2px solid #0e6ba8;
+  color: #fff;
+  text-align: center;
+  padding: 220px;
+  position: relative;
+}
+
+.storeDetails-title.jumbotron::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.storeDetails-title h1 {
+  position: relative;
+  z-index: 9;
+}
+
 .jumbotron .product-figure {
   background-size: cover;
   height: 225px;
@@ -9,4 +37,8 @@
 
 .jumbotron .product-name {
   margin-top: 180px;
+}
+
+button.add-product-btn.btn.btn-primary {
+  margin-left: 50px;
 }

@@ -1,5 +1,26 @@
+.info-header.jumbotron {
+  color: #fff;
+  background: linear-gradient(
+    200deg,
+    rgba(166, 225, 250, 1) 0%,
+    rgba(14, 107, 168, 1) 75%
+  );
+}
+
+.jumbotron.col-md-6 {
+  background-color: unset;
+  border: 2px solid #001c55;
+}
+
+.info-store-title {
+  margin-top: 180px;
+}
+
 .info-image {
-  overflow: hidden;
-  position: relative;
-  height: 500px;
+  background-size: cover;
+  height: 225px;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

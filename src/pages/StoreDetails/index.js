@@ -29,13 +29,15 @@ export default function SpaceDetails() {
 
   return (
     <> 
-      <Jumbotron>
+      <Jumbotron className="storeDetails-title"
+        style={{ backgroundImage: `url(${storeDetails.image})` }}
+      >
           <h1>Details of {storeDetails.name}</h1>
       </Jumbotron>
-      <Container as={Col} md={{ span: 12 }} className="mt-5">
-      { displayButton ? <Link to={`/add-product/${id}`}>
-           <Button>Add product</Button>
+      { displayButton ? <Link className="product-link" to={`/add-product/${id}`}>
+           <Button className="add-product-btn">Add A Product</Button>
           </Link> : null}
+      <Container as={Col} md={{ span: 12 }} className="mt-5">
            {storeDetails.products.map(product => {
                return (
                    <Jumbotron key={product.id} as={Col} md={{ span: 3 }} className="mt-12">

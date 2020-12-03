@@ -6,8 +6,8 @@ import {
   setMessage, 
   showMessageWithTimeout 
 } from "../appState/actions";
-import { selectStore, selectToken, selectUser } from "../user/selectors";
-import { selectUserInfo } from "./selectors";
+import { selectToken } from "../user/selectors";
+import { selectUserInfo, selectUserStoreInfo } from "./selectors";
 
 export const USER_DETAILS_FETCHED = "USER_DETAILS_FETCHED";
 export const UPDATE_STORE_SUCCESS = "UPDATE_STORE_SUCCESS"
@@ -34,16 +34,14 @@ export const fetchUserById = id => {
 
   export const updateStore = (name, image, description, country, city, address, postCode, category) => {
     return async (dispatch, getState) => {
-      const { id } = selectUser(getState());
-      console.log("THIS IS STORE", id)
+      const [ store ] = selectUserInfo(getState());
+      console.log("THIS IS STORE", store.store.id)
       const token = selectToken(getState());
       dispatch(appLoading());  
-  
-      const userId = id
-  
+    
       try {
         const response = await axios.patch(
-          `${apiUrl}/store/${userId}`,
+          `${apiUrl}/store/${store.store.id}`,
           {
             name,
             image,
@@ -62,7 +60,7 @@ export const fetchUserById = id => {
         console.log("This is response", response)
   
   
-        dispatch(updateStoreSuccess(response.data));
+        dispatch(updateStoreSuccess(response.data.user));
         dispatch(showMessageWithTimeout("success", true, "Store updated."));
         dispatch(appDoneLoading());
       } catch (error) {

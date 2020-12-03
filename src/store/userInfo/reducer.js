@@ -10,12 +10,6 @@ export default (state = initialState, { type, payload }) => {
     case USER_DETAILS_FETCHED:
       return [...state, {...payload}];
 
-      case UPDATE_STORE_SUCCESS:
-        return {...state, stores: {
-          ...state.stores, ...payload
-        } 
-      };
-
 
     default:
       return state;
