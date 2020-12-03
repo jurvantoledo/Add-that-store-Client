@@ -4,13 +4,14 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { addStore } from "../../store/user/actions";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader"
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { selectUser } from "../../store/user/selectors";
 
 
 const ValidationSchema = Yup.object().shape({
@@ -23,6 +24,8 @@ const ValidationSchema = Yup.object().shape({
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser)
+  const history = useHistory()
   const [suggestions, setSuggestions] = useState([]);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -41,6 +44,11 @@ export default function SignUp() {
     ]
   })
 
+  console.log(user)
+
+  if(user.id = user.userId) {
+    history.push("/")
+  }
 
   function submitForm(event) {
     event.preventDefault();
@@ -69,8 +77,12 @@ export default function SignUp() {
         {label: "Automotive", value: "Automotive"},
         {label: "Electronics", value: "Electronics"},
         {label: "Clothing", value: "Clothing"},
+        {label: "Home & Garden", value: "Home & Garden"},
         {label: "Entertainment & Arts", value: "Entertainment & Arts"},
         {label: "Food & Gifts", value: "Food & Gifts"},
+        {label: "Health & Beauty", value: "Health & Beauty"},
+        {label: "Sports & Outdoors", value: "Sports & Outdoors"},
+        {label: "Travel", value: "Travel"}
       ]
     })
   }
@@ -193,7 +205,7 @@ export default function SignUp() {
             value={city}
             onChange={event => setCity(event.target.value)}
             type="text"
-            placeholder="Amsterdam"
+            placeholder="Enter city"
             required
           />
         </Form.Group>
@@ -257,6 +269,10 @@ export default function SignUp() {
             <option value="Clothing">Clothing</option>
             <option value="Entertainment & Arts">Entertainment & Arts</option>
             <option value="Food & Gifts">Food & Gifts</option>
+            <option value="Health & Beauty">Health & Beauty</option>
+            <option value="Home & Garden">Home & Garden</option>
+            <option value="Sports & Outdoors">Sports & Outdoors</option>
+            <option value="Travel">Travel</option>
           </Form.Control>
         </Form.Group>
 

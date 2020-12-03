@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { addProduct } from "../../store/stores/actions";
 import ImageUploader from "../../components/ImageUploader/ImageUploader"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 
@@ -17,9 +17,7 @@ export default function AddProduct() {
     const [productImage, setProductImage] = useState("");
     const [productDescription, setProductDescription] = useState("");
     const { id } = useSelector(selectStoreDetails)
-  
-    console.log(id)
-  
+    
     function submitForm(event) {
       event.preventDefault();
   
@@ -94,7 +92,7 @@ export default function AddProduct() {
             Add Product
           </Button>
         </Form.Group>
-        <Link to={`/store/${id}`}>Click here to go back to your store</Link>
+        <Link to={`/store/${id}`}><strong>Click here to go back to your store</strong></Link>
         </Form>
       </Container>
     );
