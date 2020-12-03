@@ -18,7 +18,7 @@ export default function Store(props) {
                         <p>{props.description}</p>
                     </div>
                     <div className="category">
-                    <p><strong>category:</strong></p>
+                    <p><strong>Category:</strong></p>
                         <p>{props.category}</p>
                     </div>
                     <div className="address">
