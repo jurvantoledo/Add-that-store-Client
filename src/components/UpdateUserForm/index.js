@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { updatePassword, updateUserProfile } from "../../store/user/actions";
+import { selectUser } from "../../store/user/selectors";
 import { selectUserInfo } from "../../store/userInfo/selectors";
 
 export default function UpdateUserForm() {
@@ -16,7 +17,10 @@ export default function UpdateUserForm() {
     const [editForm, setEditForm] = useState(false);
     const [editPassword, setEditPassword] = useState(false);
     const userInfo = useSelector(selectUserInfo)
-    const { id } = useParams()
+    const user = useSelector(selectUser)
+
+    console.log("This is userInfo", userInfo[0].id)
+    console.log("this is user", user.id)
 
   function submitForm(event) {
     event.preventDefault();
@@ -38,7 +42,7 @@ export default function UpdateUserForm() {
 
   return (
      <div className="update-profile-form-container">
-      {userInfo.id === id ? <Button
+      {userInfo[0].id === user.id ? <Button
         className="update-button"
         variant="outline-danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
@@ -46,7 +50,7 @@ export default function UpdateUserForm() {
         Update profile
       </Button> : null}
       <div>
-      {userInfo.id === id ? <Button
+      {userInfo[0].id === user.id ? <Button
           className="mt-2"
           variant="outline-danger"
           onClick={(e) =>
