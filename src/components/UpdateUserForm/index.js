@@ -19,9 +19,6 @@ export default function UpdateUserForm() {
     const userInfo = useSelector(selectUserInfo)
     const user = useSelector(selectUser)
 
-    console.log("This is userInfo", userInfo[0].id)
-    console.log("this is user", user.id)
-
   function submitForm(event) {
     event.preventDefault();
 

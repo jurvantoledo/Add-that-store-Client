@@ -3,11 +3,13 @@ import axios from "axios"
 import { Button, Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import { Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateStore } from "../../store/userInfo/actions";
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { selectUserInfo } from "../../store/userInfo/selectors";
+import { selectUser } from "../../store/user/selectors";
 
 
 const ValidationSchema = Yup.object().shape({
@@ -19,6 +21,8 @@ const ValidationSchema = Yup.object().shape({
 
 export default function UpdateStoreForm() {
     const dispatch = useDispatch();
+    const userInfo = useSelector(selectUserInfo)
+    const user = useSelector(selectUser)
     const [suggestions, setSuggestions] = useState([]);
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
@@ -79,13 +83,13 @@ export default function UpdateStoreForm() {
 
   return (
     <div className="update-profile-form-container">
-      <Button
+      {userInfo[0].id === user.id ? <Button
         className="update-button"
         variant="outline-danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >
         Update Store
-      </Button>
+      </Button> : null}
       <div>
         {editForm ? (
           <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
