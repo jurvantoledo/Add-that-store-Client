@@ -27,16 +27,19 @@
 }
 
 .jumbotron .product-figure {
-  background-size: cover;
-  height: 250px;
+  background-size: contain;
+  height: 200px;
   width: inherit;
   position: absolute;
   top: 0;
+  background-repeat: no-repeat;
   left: 0;
+  background-position-x: center;
+  background-position-y: top;
 }
 
 .jumbotron .product-name {
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 button.add-product-btn.btn.btn-primary {
