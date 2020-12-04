@@ -48,6 +48,7 @@ export default function UpdateUserForm() {
       <div>
       {userInfo[0].id === user.id ? <Button
           className="mt-2"
+          className="update-button"
           variant="danger"
           onClick={(e) =>
             editPassword ? setEditPassword(false) : setEditPassword(true)

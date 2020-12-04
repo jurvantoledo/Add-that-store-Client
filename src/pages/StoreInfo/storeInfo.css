@@ -32,4 +32,11 @@
 
 button.update-button.btn {
   margin-top: 25px;
+  border: 2px solid #0e6ba8;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+}
+button.update-button.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 28, 85, 0.5);
 }

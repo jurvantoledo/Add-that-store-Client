@@ -268,7 +268,7 @@ export default function UpdateStoreForm() {
         </Form.Group>
 
             <Form.Group controlId="formBasicImageUrl">
-              <Form.Label>Profile picture url</Form.Label>
+              <Form.Label>Store picture url</Form.Label>
               <Form.Control
                 value={image}
                 onChange={(event) => setImage(event.target.value)}
