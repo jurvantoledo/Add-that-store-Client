@@ -25,7 +25,7 @@ export default function Navigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Home" />
-          { isOwner ? <NavbarItem path={`/info/${id}`} linkText="User Info" /> : null}
+          <NavbarItem path={`/info/${id}`} linkText="User Info" />
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

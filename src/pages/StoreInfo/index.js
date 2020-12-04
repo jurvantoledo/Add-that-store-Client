@@ -3,6 +3,7 @@ import { Button, Col, Container, Jumbotron } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { selectUser } from "../../store/user/selectors"
 import { fetchUserById } from "../../store/userInfo/actions";
 import { selectUserInfo } from "../../store/userInfo/selectors";
 import UpdateStoreForm from "../../components/UpdateStoreForm/index"
@@ -14,6 +15,8 @@ export default function StoreInfo() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const userInfo = useSelector(selectUserInfo)
+    const { isOwner } = useSelector(selectUser)
+
 
     useEffect(() => {
         dispatch(fetchUserById(id));
@@ -43,7 +46,7 @@ export default function StoreInfo() {
              </div>
              <UpdateUserForm />
              </Jumbotron>
-             <Jumbotron className="info-store-content" as={Col} md={{ span: 6 }}> 
+             { isOwner ?  <Jumbotron className="info-store-content" as={Col} md={{ span: 6 }}> 
              <div className="info-image" 
                 style={{ backgroundImage: `url(${user.store.image})` }}
              >
@@ -69,7 +72,7 @@ export default function StoreInfo() {
                         <Button>Go to store</Button>
                 </Link>
                     <UpdateStoreForm /> 
-             </Jumbotron>
+             </Jumbotron> : null}
              </Container>
             </Container>  
                 )   
