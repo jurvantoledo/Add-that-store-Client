@@ -37,6 +37,11 @@ button.update-button.btn {
   color: #000;
   font-weight: bold;
 }
+button.update-button.btn.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+  color: #fff;
+}
 button.update-button.btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 28, 85, 0.5);
 }
