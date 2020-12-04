@@ -9,6 +9,7 @@ import Store from "../../components/Store/index"
 import {
   startLoading,
   storesFetched,
+  fetchNext5Stores
 } from "../../store/feed/actions";
 import { selectFeedLoading, selectFeedStores } from "../../store/feed/selectors";
 
@@ -18,6 +19,8 @@ export default function Stores() {
     const dispatch = useDispatch()
     const feedStores = useSelector(selectFeedStores)
     const loading = useSelector(selectFeedLoading);
+
+    console.log("THIS IS FFEDSTORES", feedStores)
   
     useEffect(() => {
         dispatch(fetchNext5Stores);
