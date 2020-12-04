@@ -74,8 +74,12 @@ export default function UpdateStoreForm() {
         {label: "Automotive", value: "Automotive"},
         {label: "Electronics", value: "Electronics"},
         {label: "Clothing", value: "Clothing"},
+        {label: "Home & Garden", value: "Home & Garden"},
         {label: "Entertainment & Arts", value: "Entertainment & Arts"},
         {label: "Food & Gifts", value: "Food & Gifts"},
+        {label: "Health & Beauty", value: "Health & Beauty"},
+        {label: "Sports & Outdoors", value: "Sports & Outdoors"},
+        {label: "Travel", value: "Travel"}
       ]
     })
     setEditForm(false);
@@ -264,6 +268,10 @@ export default function UpdateStoreForm() {
             <option value="Clothing">Clothing</option>
             <option value="Entertainment & Arts">Entertainment & Arts</option>
             <option value="Food & Gifts">Food & Gifts</option>
+            <option value="Health & Beauty">Health & Beauty</option>
+            <option value="Home & Garden">Home & Garden</option>
+            <option value="Sports & Outdoors">Sports & Outdoors</option>
+            <option value="Travel">Travel</option>
           </Form.Control>
         </Form.Group>
 
