@@ -56,7 +56,6 @@ export default function AddProduct() {
             onChange={event => setProductDescription(event.target.value)}
             type="text"
             placeholder="Description"
-            disabled={productDescription.length > 255 ? true : false}
             required
           >
           </textarea>

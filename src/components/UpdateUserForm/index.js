@@ -40,7 +40,7 @@ export default function UpdateUserForm() {
      <div className="update-profile-form-container">
       {userInfo[0].id === user.id ? <Button
         className="update-button"
-        variant="outline-danger"
+        variant="danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >
         Update profile
@@ -48,7 +48,7 @@ export default function UpdateUserForm() {
       <div>
       {userInfo[0].id === user.id ? <Button
           className="mt-2"
-          variant="outline-danger"
+          variant="danger"
           onClick={(e) =>
             editPassword ? setEditPassword(false) : setEditPassword(true)
           }

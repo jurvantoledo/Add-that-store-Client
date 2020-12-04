@@ -81,7 +81,6 @@ export default function SignUp() {
     setImage(url);
   };
   
-
   return (
     <Container>
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
@@ -235,7 +234,6 @@ export default function SignUp() {
             onChange={event => setDescription(event.target.value)}
             type="text"
             placeholder="Description"
-            disabled={description.length > 255 ? true : false}
             required
           >
           </textarea>

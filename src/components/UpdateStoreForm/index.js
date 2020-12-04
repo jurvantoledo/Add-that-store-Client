@@ -85,7 +85,7 @@ export default function UpdateStoreForm() {
     <div className="update-profile-form-container">
       {userInfo[0].id === user.id ? <Button
         className="update-button"
-        variant="outline-danger"
+        variant="danger"
         onClick={(e) => (editForm ? setEditForm(false) : setEditForm(true))}
       >
         Update Store
