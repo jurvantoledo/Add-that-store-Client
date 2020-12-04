@@ -5,6 +5,7 @@
     rgba(14, 107, 168, 1) 75%
   );
   color: #fff;
+  border-radius: unset;
 }
 
 .product-container.container.col-md-12 {
