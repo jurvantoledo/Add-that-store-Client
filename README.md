@@ -21,6 +21,8 @@ In the project directory, you can run:
 - `npm run build`
 - `npm run eject`
 
+---
+
 ### User stories
 
 as a user:
@@ -32,6 +34,8 @@ as a user:
 - I want to be able to delete products when they become irrelevant.
 - I want to update my account when I made a typo.
 - I want to update my store when I made a typo
+
+---
 
 ### WireFrame & Database
 - Database: https://dbdiagram.io/d/5fbb78ae3a78976d7b7d0323
