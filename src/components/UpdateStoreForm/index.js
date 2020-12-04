@@ -241,7 +241,6 @@ export default function UpdateStoreForm() {
             onChange={event => setDescription(event.target.value)}
             type="text"
             placeholder="Description"
-            disabled={description.length > 255 ? true : false}
             required
           >
           </textarea>
