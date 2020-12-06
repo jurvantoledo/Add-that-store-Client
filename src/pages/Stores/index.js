@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 import axios from "axios";
-import { Container, Jumbotron } from "react-bootstrap"
+import { Container, Form, Jumbotron } from "react-bootstrap"
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux"
 import { Col } from "react-bootstrap";
@@ -19,6 +19,8 @@ export default function Stores() {
     const dispatch = useDispatch()
     const feedStores = useSelector(selectFeedStores)
     const loading = useSelector(selectFeedLoading);
+    const [search, setSearch ] = useState("")
+
 
     console.log("THIS IS FFEDSTORES", feedStores)
   
@@ -39,15 +41,30 @@ export default function Stores() {
       dispatch(storesFetched(moreStores));
     }
 
+    const filteredStores = feedStores.filter(store => {
+      return store.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    })
+
+
     return (
     <> 
         <Jumbotron className="Homepage-banner"
           style={{ backgroundImage: `url(https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)` }}
         >
         </Jumbotron>
+      <Container className="Search-options">
+        <Form as={Col} md={{ span: 6 }} className="search-bar">
+                <Form.Control
+                  value={search}
+                  onChange={event => setSearch(event.target.value)}
+                  type="text"
+                  placeholder="Search for a store"
+                />
+            </Form>
+        </Container>
         <Container as={Col} md={{ span: 12 }} className="mt-5">
-            {feedStores.map(store => {
-                return(
+            {filteredStores.map(store => {
+                return (
                         <Store
                           key={store.id}
                           id={store.id}

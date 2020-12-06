@@ -39,6 +39,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   z-index: 999;
 }
 
+.search-bar.col-md-6 input.form-control {
+  border: 1px solid #0e6ba8;
+}
+
 .jumbotron .figure img {
   position: relative;
   max-height: 350px;

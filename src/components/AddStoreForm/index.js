@@ -135,7 +135,7 @@ export default function SignUp() {
                 }
 
                 try {
-                  const response = await axios.get(
+                  const response = await axios.get(  
                     `https://restcountries.eu/rest/v2/name/${value}`
                   );
 
