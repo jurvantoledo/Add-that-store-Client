@@ -90,7 +90,7 @@ export default function SignUp() {
             value={phone}
             onChange={event => setPhone(event.target.value)}
             type="phoneNumber"
-            placeholder="+31 12345678"
+            placeholder="06 12345678"
             required
           />
         </Form.Group>

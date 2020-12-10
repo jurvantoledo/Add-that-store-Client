@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios"
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { addStore } from "../../store/user/actions";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import ImageUploader from "../ImageUploader/ImageUploader"
 import Autosuggest from "react-autosuggest";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { selectMessage } from "../../store/appState/selectors";
 
 const ValidationSchema = Yup.object().shape({
   country: Yup.string()
@@ -22,6 +23,8 @@ const ValidationSchema = Yup.object().shape({
 
 export default function SignUp() {
   const dispatch = useDispatch();
+  const history = useHistory()
+  const message = useSelector(selectMessage)
   const [suggestions, setSuggestions] = useState([]);
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
@@ -39,6 +42,12 @@ export default function SignUp() {
      {label: "Food & Gifts", value: "Food & Gifts"},
     ]
   })
+
+  useEffect(() => {
+    if (message === "Store created") {
+     history.push("/")
+    }
+   }, [message, history]);
 
   function submitForm(event) {
     event.preventDefault();
