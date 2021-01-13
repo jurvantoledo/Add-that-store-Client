@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Col } from "react-bootstrap";
 import Store from "../../components/Store/index"
 import {
-  startLoading,
   storesFetched,
-  fetchNext5Stores
 } from "../../store/feed/actions";
 import { selectFeedLoading, selectFeedStores } from "../../store/feed/selectors";
 
@@ -31,7 +29,6 @@ export default function Stores() {
       }, [dispatch]);
   
     async function fetchNext5Stores() {
-      dispatch(appLoading());
       const storeCount = feedStores.length;
       const response = await axios.get(
         `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
@@ -40,7 +37,6 @@ export default function Stores() {
       const moreStores = response.data.stores.rows;
   
       dispatch(storesFetched(moreStores));
-      dispatch(appDoneLoading());
     }
 
     const filteredStores = feedStores.filter(store => {
