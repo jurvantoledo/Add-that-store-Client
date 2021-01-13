@@ -14,15 +14,16 @@ import {
 import { selectFeedLoading, selectFeedStores } from "../../store/feed/selectors";
 
 import "./stores.css";
+import { 
+  appDoneLoading, 
+  appLoading 
+} from "../../store/appState/actions";
 
 export default function Stores() {
     const dispatch = useDispatch()
     const feedStores = useSelector(selectFeedStores)
     const loading = useSelector(selectFeedLoading);
     const [search, setSearch ] = useState("")
-
-
-    console.log("THIS IS FFEDSTORES", feedStores)
   
     useEffect(() => {
         dispatch(fetchNext5Stores);
@@ -30,7 +31,7 @@ export default function Stores() {
       }, [dispatch]);
   
     async function fetchNext5Stores() {
-      dispatch(startLoading);
+      dispatch(appLoading());
       const storeCount = feedStores.length;
       const response = await axios.get(
         `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
@@ -39,6 +40,7 @@ export default function Stores() {
       const moreStores = response.data.stores.rows;
   
       dispatch(storesFetched(moreStores));
+      dispatch(appDoneLoading());
     }
 
     const filteredStores = feedStores.filter(store => {

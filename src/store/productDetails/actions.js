@@ -11,7 +11,6 @@ const productDetailsFetched = product => ({
 export const fetchProductById = id => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}product/${id}`);
-    console.log(response);
     dispatch(productDetailsFetched(response.data.product));
   };
 };
