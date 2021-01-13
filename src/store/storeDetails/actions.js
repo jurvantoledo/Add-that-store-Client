@@ -19,7 +19,6 @@ export const storeDetailsFetched = store => ({
 export const fetchStoreById = id => {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}store/${id}`);
-    console.log(response);
     dispatch(storeDetailsFetched(response.data.store));
   };
 };
@@ -33,7 +32,6 @@ export const deleteProduct = (id) => {
       const response = await axios.delete(`${apiUrl}product/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log("this is response", response);
       dispatch(getUserWithStoredToken());
     } catch (error) {
       if (error.response) {

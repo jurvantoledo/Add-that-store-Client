@@ -28,7 +28,6 @@ export const fetchStores = () => {
         `${apiUrl}store?limit=${DEFAULT_PAGINATION_LIMIT}&offset=${storeCount}`
     );
       
-          console.log(response.data);
           dispatch(fetchStoresSucces(response.data.stores.rows));
     };
 };

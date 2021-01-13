@@ -24,9 +24,6 @@ export default function Stores() {
     const feedStores = useSelector(selectFeedStores)
     const loading = useSelector(selectFeedLoading);
     const [search, setSearch ] = useState("")
-
-
-    console.log("THIS IS FFEDSTORES", feedStores)
   
     useEffect(() => {
         dispatch(fetchNext5Stores);
