@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Col } from "react-bootstrap";
 import Store from "../../components/Store/index"
 import {
-  startLoading,
   storesFetched,
-  fetchNext5Stores
 } from "../../store/feed/actions";
 import { selectFeedLoading, selectFeedStores } from "../../store/feed/selectors";
 
