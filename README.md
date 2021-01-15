@@ -37,8 +37,3 @@ as a user:
 
 ---
 
-### WireFrame & Database
-- Database: https://dbdiagram.io/d/5fbb78ae3a78976d7b7d0323
-- Wireframe: https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M61ccfae85841bd9b83d3d3d67b05f91e1605887391614&publicid=889035f9d4254236abcd2e63359d0b99#/page/4115ffc92d8e43b2a7d5c35b23933e8f
-
-
