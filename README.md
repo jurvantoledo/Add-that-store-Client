@@ -28,12 +28,12 @@ In the project directory, you can run:
 as a user:
 
 - I want to be able to sign up to the service.
-- I want to be able to login
-- I want to add my store
+- I want to be able to login.
+- I want to add my store.
 - I want to add products for my store.
 - I want to be able to delete products when they become irrelevant.
 - I want to update my account when I made a typo.
-- I want to update my store when I made a typo
+- I want to update my store when I made a typo.
 
 ---
 
