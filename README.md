@@ -1,9 +1,6 @@
 <h1 align="center">Hi, I'm Jur van Toledo</h1>
 <h3 align="center">A junior full-stack developer from The Netherlands</h3>
 
-- 🔭 I’m currently working on [Add a Store client](https://github.com/jurvantoledo/add-that-store-client) &
-  [Add a Store server](https://github.com/jurvantoledo/Add-that-store-server)
-
   <h2 align="center">What is Add a Store about</h2>
 
 - **Add a store is meant for small store owners to give them a platform where they can promote their store and the products they sell. On Add a Store you can add your own store with all the important information that customers wanna know. Add a store is also a great platform for visitors to search for some awesome stores.
